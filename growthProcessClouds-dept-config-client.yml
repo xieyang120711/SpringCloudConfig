@@ -5,12 +5,7 @@ spring:
 
 ---
 server:
-    port: 8001
-    
-spring:
-    profiles: dev #开发环境
-    application:
-        name: growthProcessClouds-dept-config-client
+    port: 8001 
         
 mybatis:
   config-location: classpath:mybatis/mybatis.cfg.xml        # mybatis配置文件所在路径
@@ -19,8 +14,9 @@ mybatis:
   - classpath:mybatis/mapper/**/*.xml                       # mapper映射文件
     
 spring:
+   profiles: dev #开发环境
    application:
-     name: growthProcessClouds-provider-dept 
+     name: growthProcessClouds-dept-config-client
    datasource:
      type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
      driver-class-name: com.mysql.cj.jdbc.Driver             # mysql驱动包 org.gjt.mm.mysql.Driver-->5.0.4 
@@ -39,22 +35,18 @@ eureka:
       #defaultZone: http://localhost:7001/eureka
       defaultZone: http://eureka7001.com:7001/eureka/     
   instance:
-    instance-id: growthProcessClouds-provider-dept8001
+    instance-id: growthProcessClouds-provider-config-dept8001
     prefer-ip-address: true     #访问路径可以显示IP地址      
         
 info: 
-  app.name: growthProcess-microservicecloud-dept
+  app.name: growthProcessClouds-dept-config-client 
   company.name: www.wyzxwfw.com
   build.artifactId: $project.artifactId$
   build.version: $project.version$
+  
 ---
 server:
     port: 8001
-    
-spring:
-    profiles: test #测试环境
-    application:
-        name: growthProcessClouds-dept-config-client
         
 mybatis:
   config-location: classpath:mybatis/mybatis.cfg.xml        # mybatis配置文件所在路径
@@ -63,8 +55,9 @@ mybatis:
   - classpath:mybatis/mapper/**/*.xml                       # mapper映射文件
     
 spring:
+   profiles: test #测试环境
    application:
-     name: growthProcessClouds-provider-dept 
+     name: growthProcessClouds-dept-config-client 
    datasource:
      type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
      driver-class-name: com.mysql.cj.jdbc.Driver             # mysql驱动包 org.gjt.mm.mysql.Driver-->5.0.4 
@@ -83,11 +76,11 @@ eureka:
       #defaultZone: http://localhost:7001/eureka
       defaultZone: http://eureka7001.com:7001/eureka/      
   instance:
-    instance-id: growthProcessClouds-provider-dept8001
+    instance-id: growthProcessClouds-provider-config-dept8001
     prefer-ip-address: true     #访问路径可以显示IP地址      
         
 info: 
-  app.name: growthProcess-microservicecloud-dept
+  app.name: growthProcessClouds-dept-config-client 
   company.name: www.wyzxwfw.com
   build.artifactId: $project.artifactId$
   build.version: $project.version$     
